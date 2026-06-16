@@ -1,1 +1,1 @@
-import { logGame } from '../../utils/gameLogger'; export class FogSystem { reveal(x:number,y:number){ logGame('FOG_REVEAL',{x,y}); } }
+import { useDungeonStore, FOG_VISION_RADIUS } from '../../stores/dungeonStore'; import { logGame } from '../../utils/gameLogger'; export class FogSystem { reveal(x:number,y:number){useDungeonStore.getState().revealAround(x,y);logGame('FOG_REVEAL',{x,y,radius:FOG_VISION_RADIUS});} }
